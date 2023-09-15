@@ -12,11 +12,11 @@ public class Discount {
             strategy = GenerationType.SEQUENCE,
             generator = "discount_id_sequence"
     )
-    private int id;
+    private Integer id;
 
     private String name;
 
-    private int percentage;
+    private Integer percentage;
 
     @ManyToOne
     @JoinColumn(name="member_id", nullable=false)
@@ -25,18 +25,18 @@ public class Discount {
     public Discount() {
     }
 
-    public Discount(int id, String name, int percentage, Member member) {
+    public Discount(Integer id, String name, Integer percentage, Member member) {
         this.id = id;
         this.name = name;
         this.percentage = percentage;
         this.member = member;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,11 +48,11 @@ public class Discount {
         this.name = name;
     }
 
-    public int getPercentage() {
+    public Integer getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(int percentage) {
+    public void setPercentage(Integer percentage) {
         this.percentage = percentage;
     }
 

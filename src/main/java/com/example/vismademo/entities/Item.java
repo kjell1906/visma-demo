@@ -12,14 +12,14 @@ public class Item {
             strategy = GenerationType.SEQUENCE,
             generator = "item_id_sequence"
     )
-    private int id;
+    private Integer id;
     @Column(nullable = true)
     private String itemNumber;
     @Column(nullable = false)
     private String description;
 
     @Column(nullable = true)
-    private int weight;
+    private Integer weight;
 
     @Column(nullable = true)
     private String color;
@@ -28,7 +28,7 @@ public class Item {
     private String flavor;
 
     @Column(nullable = false)
-    private int price;
+    private Integer price;
 
     @ManyToOne
     @JoinColumn(name="category_id", nullable=false)
@@ -37,7 +37,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String itemNumber, String description, int weight, String color, String flavor, Category category) {
+    public Item(Integer id, String itemNumber, String description, Integer weight, String color, String flavor, Category category) {
         this.id = id;
         this.itemNumber = itemNumber;
         this.description = description;
@@ -47,11 +47,11 @@ public class Item {
         this.category = category;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -71,11 +71,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

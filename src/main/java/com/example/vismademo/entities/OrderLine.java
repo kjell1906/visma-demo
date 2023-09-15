@@ -28,13 +28,13 @@ public class OrderLine {
     @JoinColumn(name="discount_id", nullable=false)
     private Discount discount;
 
-    private int quantity;
-    private int lineAmount;
+    private Integer quantity;
+    private Integer lineAmount;
 
     public OrderLine() {
     }
 
-    public OrderLine(Integer id, Cart cart, int quantity, int lineAmount) {
+    public OrderLine(Integer id, Cart cart, Integer quantity, Integer lineAmount) {
         this.id = id;
         this.cart = cart;
         this.quantity = quantity;
@@ -57,19 +57,19 @@ public class OrderLine {
         this.cart = cart;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public int getLineAmount() {
+    public Integer getLineAmount() {
         return lineAmount;
     }
 
-    public void setLineAmount(int lineAmount) {
+    public void setLineAmount(Integer lineAmount) {
         this.lineAmount = lineAmount;
     }
 }

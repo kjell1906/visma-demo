@@ -16,7 +16,7 @@ public class Member {
             strategy = GenerationType.SEQUENCE,
             generator = "member_id_sequence"
     )
-    private int id;
+    private Integer id;
 
     // Member has a name in startup
     private String name;
@@ -28,16 +28,16 @@ public class Member {
         discounts = new ArrayList<Discount>();
     }
 
-    public Member(int id, String name) {
+    public Member(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

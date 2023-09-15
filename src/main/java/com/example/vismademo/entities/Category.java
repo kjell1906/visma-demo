@@ -11,7 +11,7 @@ public class Category {
             strategy = GenerationType.SEQUENCE,
             generator = "category_id_sequence"
     )
-    private int id;
+    private Integer id;
 
     // Category has a name
     private String name;
@@ -24,11 +24,11 @@ public class Category {
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
