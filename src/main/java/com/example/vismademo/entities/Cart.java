@@ -20,7 +20,7 @@ public class Cart {
 
     private Date orderDate;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderLine> orderLine;
 
     public Cart() {

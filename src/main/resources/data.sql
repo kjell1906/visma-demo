@@ -18,3 +18,5 @@ INSERT INTO discount (id, member_id, percentage, name) VALUES
 (nextval('discount_id_sequence'), 1, 5, 'hot dogs'),
 (nextval('discount_id_sequence'), 1, 10, 'furniture');
 
+INSERT INTO order_line (id, line_amount, quantity, order_id, discount_id, item_id) VALUES
+(nextval('order_line_id_sequence'), 29, 1, 1, 1, 1);

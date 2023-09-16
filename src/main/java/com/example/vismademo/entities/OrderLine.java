@@ -34,11 +34,13 @@ public class OrderLine {
     public OrderLine() {
     }
 
-    public OrderLine(Integer id, Cart cart, Integer quantity, Integer lineAmount) {
+    public OrderLine(Integer id, Cart cart, Integer quantity, Integer lineAmount, Item item, Discount discount) {
         this.id = id;
         this.cart = cart;
         this.quantity = quantity;
         this.lineAmount = lineAmount;
+        this.item = item;
+        this.discount = discount;
     }
 
     public Integer getId() {
@@ -71,5 +73,29 @@ public class OrderLine {
 
     public void setLineAmount(Integer lineAmount) {
         this.lineAmount = lineAmount;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 }

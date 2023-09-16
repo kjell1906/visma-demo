@@ -6,11 +6,15 @@ import com.example.vismademo.entities.OrderLine;
 import com.example.vismademo.repositories.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping()
 public class OrderController {
+
 
     private final OrderRepository orderRepository;
     private final OrderLineRepository orderLineRepository;
@@ -25,6 +29,8 @@ public class OrderController {
             ItemRepository itemRepository,
             DiscountRepository discountRepository,
             MemberRepository memberRepository) {
+
+
         this.orderRepository = orderRepository;
         this.orderLineRepository = orderLineRepository;
         this.itemRepository = itemRepository;
@@ -37,9 +43,26 @@ public class OrderController {
         return "use /get_order to get order details and /create_order to create new.";
     }
 
+    record OrderLineDTO (String product, String discount) {}
     @GetMapping("/get_order")
-    public String getOrder(){
-        return "Order List";
+    public List<OrderLineDTO> getOrder(@RequestParam Integer id){
+
+        List<OrderLineDTO> dtos = new ArrayList<>();
+
+        try {
+            Optional<Cart> cart = orderRepository.findById(id);
+            if(cart.isPresent()){
+                for (OrderLine l: cart.get().getOrderLine()) {
+                    OrderLineDTO dto = new OrderLineDTO(l.getItem().getDescription(), l.getDiscount().getName());
+                    dtos.add(dto);
+                }
+
+                return dtos;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
     }
 
     record OrderlineRequest(
@@ -56,14 +79,15 @@ public class OrderController {
 
         for (OrderlineRequest r: orderlineRequest
         ) {
+            Item item = null;
             if(!r.itemNumber.isBlank()){
                 // Look for items by item number
-                Item item = itemRepository.findItemByItemNumber(r.itemNumber);
+                item = itemRepository.findItemByItemNumber(r.itemNumber);
                 System.out.println(item.getDescription());
             }
             else {
                 // Look for items by flavor
-                Item item = itemRepository.findItemByFlavor(r.flavor);
+                item = itemRepository.findItemByFlavor(r.flavor);
                 System.out.println(item.getDescription());
             }
 
