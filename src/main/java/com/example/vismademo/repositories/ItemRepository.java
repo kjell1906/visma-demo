@@ -11,5 +11,5 @@ public interface ItemRepository  extends JpaRepository<Item, Integer> {
     Item findItemByFlavor(@Param("flavor") String flavor);
 
     @Query("FROM Item WHERE itemNumber = :itemNumber")
-    Item findItemByItemNumber(@Param("itemNumber") String flavor);
+    Item findItemByItemNumber(@Param("itemNumber") String itemNumber);
 }

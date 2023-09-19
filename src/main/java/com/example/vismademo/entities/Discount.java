@@ -1,6 +1,9 @@
 package com.example.vismademo.entities;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Discount {
 
@@ -22,14 +25,21 @@ public class Discount {
     @JoinColumn(name="member_id", nullable=false)
     private Member member;
 
+
+
+    @ManyToOne
+    @JoinColumn(name="item_id", nullable=false)
+    private Item item;
     public Discount() {
+
     }
 
-    public Discount(Integer id, String name, Integer percentage, Member member) {
+    public Discount(Integer id, String name, Integer percentage, Member member, Item item) {
         this.id = id;
         this.name = name;
         this.percentage = percentage;
         this.member = member;
+        this.item = item;
     }
 
     public Integer getId() {
@@ -63,5 +73,13 @@ public class Discount {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

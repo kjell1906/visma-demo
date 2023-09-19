@@ -25,7 +25,7 @@ public class OrderLine {
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name="discount_id", nullable=false)
+    @JoinColumn(name="discount_id", nullable=true)
     private Discount discount;
 
     private Integer quantity;

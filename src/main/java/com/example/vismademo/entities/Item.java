@@ -1,6 +1,9 @@
 package com.example.vismademo.entities;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Item {
 
@@ -34,7 +37,11 @@ public class Item {
     @JoinColumn(name="category_id", nullable=false)
     private Category category;
 
+    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Discount> discounts;
+
     public Item() {
+        this.discounts = new ArrayList<>();
     }
 
     public Item(Integer id, String itemNumber, String description, Integer weight, String color, String flavor, Category category) {
@@ -45,6 +52,7 @@ public class Item {
         this.color = color;
         this.flavor = flavor;
         this.category = category;
+
     }
 
     public Integer getId() {
@@ -101,5 +109,21 @@ public class Item {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
     }
 }
