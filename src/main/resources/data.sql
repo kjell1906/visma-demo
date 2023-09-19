@@ -17,9 +17,3 @@ INSERT INTO member (id, name) VALUES
 INSERT INTO discount (id, item_id, member_id, percentage, name) VALUES
 (nextval('discount_id_sequence'),3, 1, 5, 'hot dogs'),
 (nextval('discount_id_sequence'),1, 1, 10, 'furniture');
-
-INSERT INTO cart (id, order_date) VALUES
-(nextval('cart_id_sequence'),	NOW());
-
-INSERT INTO order_line (id, line_amount, quantity, order_id, discount_id, item_id) VALUES
-(nextval('line_id_sequence'), 29, 1, 1, 1, 1);

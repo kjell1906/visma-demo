@@ -86,7 +86,8 @@ public class OrderServiceImpl implements OrderService {
             Integer calculateDiscount = 0;
 
             if(discounts.size() > 0){
-                calculateDiscount = item.getPrice() * orderLine.getDiscount().getPercentage() / 100;
+                if(orderLine.getDiscount() != null)
+                    calculateDiscount = item.getPrice() * orderLine.getDiscount().getPercentage() / 100;
             }
 
             Integer amount = (item.getPrice() - calculateDiscount) * orderLine.getQuantity();
@@ -113,7 +114,16 @@ public class OrderServiceImpl implements OrderService {
                 cartDTO.setOrderDate(cart.get().getOrderDate());
 
                 for (OrderLine l: cart.get().getOrderLine()) {
-                    OrderLineDTO dto = new OrderLineDTO(l.getItem().getDescription(), l.getDiscount().getName());
+
+                    OrderLineDTO dto = new OrderLineDTO();
+                    dto.setItemNumber(l.getItem().getItemNumber());
+                    dto.setProduct(l.getItem().getDescription());
+                    if (l.getDiscount() != null) {
+                        dto.setDiscount(l.getDiscount().getName());
+                        dto.setPercentage(l.getDiscount().getPercentage());
+                    } else {
+                        dto.setDiscount("");
+                    }
                     cartDTO.getOrderLines().add(dto);
                 }
 

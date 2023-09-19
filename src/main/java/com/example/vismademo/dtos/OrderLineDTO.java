@@ -5,13 +5,16 @@ public class OrderLineDTO {
     public String itemNumber;
     private String product;
     private String discount;
+    private Integer percentage;
+
 
     public OrderLineDTO() {
     }
 
-    public OrderLineDTO(String product, String discount) {
+    public OrderLineDTO(String product, String discount, Integer percentage) {
         this.product = product;
         this.discount = discount;
+        this.percentage = percentage;
     }
 
     public String getProduct() {
@@ -28,5 +31,21 @@ public class OrderLineDTO {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public String getItemNumber() {
+        return itemNumber;
+    }
+
+    public void setItemNumber(String itemNumber) {
+        this.itemNumber = itemNumber;
+    }
+
+    public Integer getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(Integer percentage) {
+        this.percentage = percentage;
     }
 }
