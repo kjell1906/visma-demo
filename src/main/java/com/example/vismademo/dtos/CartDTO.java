@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The DTO classes is used to only expose data we want to expose. This prevents us for exposing the Entity data.
+ * and gives us an opportunity to hide sensitive data from outside world.
+ */
 public class CartDTO {
 
     private Integer id;

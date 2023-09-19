@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * If customer is member then he or she may have discount on different items (products)
+ * Discounts is added in the calculation of amount when the cart orderlines is processed and added to database
+ */
 @Entity
 public class Discount {
 
@@ -21,12 +25,12 @@ public class Discount {
 
     private Integer percentage;
 
+    // Discount is set up, so that an member can have one or many discounts
     @ManyToOne
     @JoinColumn(name="member_id", nullable=false)
     private Member member;
 
-
-
+    // Have added item to Discount, so it is easier too lookup the correct discount for current item.
     @ManyToOne
     @JoinColumn(name="item_id", nullable=false)
     private Item item;

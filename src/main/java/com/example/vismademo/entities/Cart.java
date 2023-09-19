@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 public class Cart {
 
+    // Id is auto generated with an allocationSize of 1
     @Id
     @SequenceGenerator(
             name = "cart_id_sequence",
@@ -20,6 +21,7 @@ public class Cart {
 
     private Date orderDate;
 
+    // The relation is one cart can have one or more orderlines
     @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderLine> orderLine;
 

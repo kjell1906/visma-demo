@@ -1,5 +1,9 @@
 package com.example.vismademo.dtos;
 
+/**
+ * The DTO classes is used to only expose data we want to expose. This prevents us for exposing the Entity data.
+ * and gives us an opportunity to hide sensitive data from outside world.
+ */
 public class OrderlineRequestDTO {
 
     private String flavor;

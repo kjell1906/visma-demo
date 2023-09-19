@@ -33,10 +33,12 @@ public class Item {
     @Column(nullable = false)
     private Integer price;
 
+    // Added items to category
     @ManyToOne
     @JoinColumn(name="category_id", nullable=false)
     private Category category;
 
+    // An item can have different discounts.
     @OneToMany(mappedBy = "item", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Discount> discounts;
 

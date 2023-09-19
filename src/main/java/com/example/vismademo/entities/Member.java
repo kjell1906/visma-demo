@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 public class Member {
 
@@ -21,6 +22,7 @@ public class Member {
     // Member has a name in startup
     private String name;
 
+    // Member can have multiple discounts
     @OneToMany(mappedBy="member")
     private List<Discount> discounts;
 
@@ -53,7 +55,7 @@ public class Member {
         return discounts;
     }
 
-//    public void setDiscount(List<Discount> discount) {
-//        this.discounts = discounts;
-//    }
+    public void setDiscount(List<Discount> discount) {
+        this.discounts = discounts;
+    }
 }
