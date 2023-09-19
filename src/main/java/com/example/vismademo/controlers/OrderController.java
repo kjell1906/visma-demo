@@ -33,6 +33,7 @@ public class OrderController {
     @GetMapping("/get_order")
     public List<OrderLineDTO> getOrder(@RequestParam Integer id){
 
+        // Send request to database to get order lines and product details
         return orderService.getOrder(id).getOrderLines();
 
     }
@@ -40,6 +41,7 @@ public class OrderController {
     @PostMapping("/create_order")
     public String createOrder(@RequestBody OrderlineRequestDTO[] orderlineRequestDTO){
 
+        // Send request details to orderService to store in database
         return orderService.createOrder(orderlineRequestDTO);
 
     }
