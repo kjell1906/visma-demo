@@ -4,7 +4,11 @@ import com.example.vismademo.entities.Item;
 import com.example.vismademo.repositories.ItemRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-
+/**
+ * Using service to make the service loose coupled.
+ * This gives us the option to use Service Layer in other services or controllers with just calling the service method to
+ * get data from logic. We also hold the logic in methods in service class and have achieved code reuse and only one place to update the code.
+ */
 @Service
 public class ItemServiceImpl implements ItemService{
 

@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Using service to make the service loose coupled.
+ * This gives us the option to use Service Layer in other services or controllers with just calling the service method to
+ * get data from logic. We also hold the logic in methods in service class and have achieved code reuse and only one place to update the code.
+ */
 @Service
 public class OrderServiceImpl implements OrderService {
 
